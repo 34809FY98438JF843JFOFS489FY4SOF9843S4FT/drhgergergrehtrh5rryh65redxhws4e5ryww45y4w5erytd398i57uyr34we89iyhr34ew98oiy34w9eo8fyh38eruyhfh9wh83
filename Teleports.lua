@@ -101,8 +101,8 @@ return function(tab)
                 ["Dual Edge Specter"] = Vector3.new(-782.24, 56.09, 1321.91),
                 ["Rock Golem Sentinel"] = Vector3.new(-826.70, 59.67, 1408.19),
                 ["Marooned Cavalier"] = Vector3.new(-924.23, 56.78, 1385.65),
-                ["Woodland Sovereign"] = Vector3.new(-1041.97, 54.81, 1324.87),
-                ["Cannibal Shaman"] = Vector3.new(-891.35, 61.08, 1481.01)
+                ["Cannibal Shaman"] = Vector3.new(-891.35, 61.08, 1481.01),
+                ["Woodland Sovereign"] = Vector3.new(-1041.97, 54.81, 1324.87)
             }
             tp(coords[selected])
         end
@@ -131,14 +131,14 @@ return function(tab)
         Description = "Choose a World 3 boss to teleport",
         Values = {"Prototype Zero", "Abyssal High Priest", "Guardian Priest", "Advanced Mecha MKII", "Deep Sea Undead"},
         Multi = false,
-        Default = "Prototype Zero",
+        Default = "Deep Sea Undead",
         Callback = function(selected)
             local coords = {
-                ["Prototype Zero"] = Vector3.new(2019.57, -64.02, 2814.30),
-                ["Abyssal High Priest"] = Vector3.new(1363.40, -126.52, 2823.81),
+                ["Deep Sea Undead"] = Vector3.new(1773.87, -132.80, 2860.51)
                 ["Guardian Priest"] = Vector3.new(1380.68, -125.77, 2808.35),
                 ["Advanced Mecha MKII"] = Vector3.new(2011.13, -128.93, 2760.34),
-                ["Deep Sea Undead"] = Vector3.new(1773.87, -132.80, 2860.51)
+                ["Abyssal High Priest"] = Vector3.new(1363.40, -126.52, 2823.81),
+                ["Prototype Zero"] = Vector3.new(2019.57, -64.02, 2814.30),
             }
             tp(coords[selected])
         end
