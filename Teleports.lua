@@ -29,8 +29,10 @@ ms:AddToggle("MapToggle", {
             end
         end
     end)
+
+local ts = tab:AddSection("Teleport Section")
     
-ms:AddSection("World 1 Locations")
+ts:AddSection("World 1 Locations")
     world1:AddDropdown("World1Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 1 location to teleport",
@@ -50,7 +52,7 @@ ms:AddSection("World 1 Locations")
         end
     })
 
-ms:AddSection("World 1 Bosses")
+ts:AddSection("World 1 Bosses")
     world1Bosses:AddDropdown("World1BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 1 boss to teleport",
@@ -69,7 +71,7 @@ ms:AddSection("World 1 Bosses")
         end
     })
 
-ms:AddSection("World 2 Locations")
+ts:AddSection("World 2 Locations")
     world2:AddDropdown("World2Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 2 location to teleport",
@@ -86,7 +88,7 @@ ms:AddSection("World 2 Locations")
         end
     })
 
-ms:AddSection("World 2 Bosses")
+ts:AddSection("World 2 Bosses")
     world2Bosses:AddDropdown("World2BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 2 boss to teleport",
@@ -106,7 +108,7 @@ ms:AddSection("World 2 Bosses")
         end
     })
 
-ms:AddSection("World 3 Locations")
+ts:AddSection("World 3 Locations")
     world3:AddDropdown("World3Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 3 location to teleport",
@@ -123,7 +125,7 @@ ms:AddSection("World 3 Locations")
         end
     })
 
-ms:AddSection("World 3 Bosses")
+ts:AddSection("World 3 Bosses")
     world3Bosses:AddDropdown("World3BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 3 boss to teleport",
