@@ -134,11 +134,11 @@ return function(tab)
         Default = "Deep Sea Undead",
         Callback = function(selected)
             local coords = {
-                ["Deep Sea Undead"] = Vector3.new(1773.87, -132.80, 2860.51)
+                ["Deep Sea Undead"] = Vector3.new(1773.87, -132.80, 2860.51),
                 ["Guardian Priest"] = Vector3.new(1380.68, -125.77, 2808.35),
                 ["Advanced Mecha MKII"] = Vector3.new(2011.13, -128.93, 2760.34),
                 ["Abyssal High Priest"] = Vector3.new(1363.40, -126.52, 2823.81),
-                ["Prototype Zero"] = Vector3.new(2019.57, -64.02, 2814.30),
+                ["Prototype Zero"] = Vector3.new(2019.57, -64.02, 2814.30)
             }
             tp(coords[selected])
         end
