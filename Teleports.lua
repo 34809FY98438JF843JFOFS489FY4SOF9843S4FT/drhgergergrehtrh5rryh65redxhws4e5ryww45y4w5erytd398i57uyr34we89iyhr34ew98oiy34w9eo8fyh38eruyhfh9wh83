@@ -40,8 +40,6 @@ return function(tab)
         end
     end)
 
-    local tpMs = tab:AddSection("Teleport Menu")
-
     local locations = {
         ["World 1"] = {
             ["Pvp"] = Vector3.new(-15.83, 96.40, -413.64),
@@ -86,14 +84,21 @@ return function(tab)
     }
 
     for world, places in pairs(locations) do
-        tpMs:AddDropdown(world, {
-            Title = world,
+        local section = tab:AddSection(world)
+        section:AddDropdown(world .. "Dropdown", {
+            Title = "Select Location",
+            Description = "Choose a location to teleport",
             Values = table.keys(places),
-            Multi = false,
-            Default = 1,
-            Callback = function(v)
-                tp(places[v])
-                print("Teleported to:", v)
+            Multi = true,
+            Default = {},
+            Callback = function(selected)
+                for _, loc in ipairs(selected) do
+                    if places[loc] then
+                        tp(places[loc])
+                        print("Teleported to:", loc)
+                        wait(1) 
+                    end
+                end
             end
         })
     end
