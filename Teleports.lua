@@ -127,7 +127,7 @@ return function(tab)
     world3Bosses:AddDropdown("World3BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 3 boss to teleport",
-        Values = {"Prototype Zero", "Abyssal High Priest", "Guardian Priest", "Advanced Mecha MKII", "Deep Sea Undead"},
+        Values = {"Deep Sea Undead", "Guardian Priest", "Advanced Mecha MKII", "Abyssal High Priest", "Prototype Zero"},
         Multi = false,
         Default = "Deep Sea Undead",
         Callback = function(selected)
