@@ -10,7 +10,7 @@ return function(tab)
 
     local ms = tab:AddSection("Map Toggle")
 
-ms:AddToggle("MapToggle", {
+    ms:AddToggle("MapToggle", {
         Title = "Equip Map",
         Default = false
     }):OnChanged(function(v)
@@ -30,15 +30,15 @@ ms:AddToggle("MapToggle", {
         end
     end)
 
-local ts = tab:AddSection("Teleport Section")
-    
-ts:AddSection("World 1 Locations")
+    local ts = tab:AddSection("Teleport Section")
+
+    local world1 = tab:AddSection("World 1 Locations")
     world1:AddDropdown("World1Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 1 location to teleport",
         Values = {"Pvp", "Leaderboards", "Mount Shop", "Spawn", "Grocery Store", "Blacksmith"},
         Multi = false,
-        Default = {"Spawn"},
+        Default = "Spawn",
         Callback = function(selected)
             local coords = {
                 ["Pvp"] = Vector3.new(-15.83, 96.40, -413.64),
@@ -52,13 +52,13 @@ ts:AddSection("World 1 Locations")
         end
     })
 
-ts:AddSection("World 1 Bosses")
+    local world1Bosses = tab:AddSection("World 1 Bosses")
     world1Bosses:AddDropdown("World1BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 1 boss to teleport",
         Values = {"Ancient Gladiator", "Holy Sect Exile", "Sacrificial Piece", "Mechanical Minion", "Blade"},
         Multi = false,
-        Default = {"Ancient Gladiator"},
+        Default = "Ancient Gladiator",
         Callback = function(selected)
             local coords = {
                 ["Ancient Gladiator"] = Vector3.new(38.12, 100.37, -309.53),
@@ -71,13 +71,13 @@ ts:AddSection("World 1 Bosses")
         end
     })
 
-ts:AddSection("World 2 Locations")
+    local world2 = tab:AddSection("World 2 Locations")
     world2:AddDropdown("World2Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 2 location to teleport",
         Values = {"Spawn", "Mount Shop", "Blacksmith"},
         Multi = false,
-        Default = {"Spawn"},
+        Default = "Spawn",
         Callback = function(selected)
             local coords = {
                 ["Spawn"] = Vector3.new(-691.55, 55.24, 1193.55),
@@ -88,13 +88,13 @@ ts:AddSection("World 2 Locations")
         end
     })
 
-ts:AddSection("World 2 Bosses")
+    local world2Bosses = tab:AddSection("World 2 Bosses")
     world2Bosses:AddDropdown("World2BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 2 boss to teleport",
         Values = {"Jungle Hunter", "Dual Edge Specter", "Rock Golem Sentinel", "Marooned Cavalier", "Woodland Sovereign", "Cannibal Shaman"},
         Multi = false,
-        Default = {"Jungle Hunter"},
+        Default = "Jungle Hunter",
         Callback = function(selected)
             local coords = {
                 ["Jungle Hunter"] = Vector3.new(-718.06, 55.85, 1272.00),
@@ -108,13 +108,13 @@ ts:AddSection("World 2 Bosses")
         end
     })
 
-ts:AddSection("World 3 Locations")
+    local world3 = tab:AddSection("World 3 Locations")
     world3:AddDropdown("World3Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 3 location to teleport",
         Values = {"Spawn", "Mount Shop", "Blacksmith"},
         Multi = false,
-        Default = {"Spawn"},
+        Default = "Spawn",
         Callback = function(selected)
             local coords = {
                 ["Spawn"] = Vector3.new(1715.53, 54.19, 2819.48),
@@ -125,13 +125,13 @@ ts:AddSection("World 3 Locations")
         end
     })
 
-ts:AddSection("World 3 Bosses")
+    local world3Bosses = tab:AddSection("World 3 Bosses")
     world3Bosses:AddDropdown("World3BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 3 boss to teleport",
         Values = {"Prototype Zero", "Abyssal High Priest", "Guardian Priest", "Advanced Mecha MKII", "Deep Sea Undead"},
         Multi = false,
-        Default = {"Prototype Zero"},
+        Default = "Prototype Zero",
         Callback = function(selected)
             local coords = {
                 ["Prototype Zero"] = Vector3.new(2019.57, -64.02, 2814.30),
