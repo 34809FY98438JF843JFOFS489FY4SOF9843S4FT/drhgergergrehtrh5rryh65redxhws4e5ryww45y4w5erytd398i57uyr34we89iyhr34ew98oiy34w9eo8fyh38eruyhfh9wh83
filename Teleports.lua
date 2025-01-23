@@ -30,8 +30,6 @@ return function(tab)
         end
     end)
 
-    local ts = tab:AddSection("Teleport Section")
-
     local world1 = tab:AddSection("World 1 Locations")
     world1:AddDropdown("World1Dropdown", {
         Title = "Select Location",
