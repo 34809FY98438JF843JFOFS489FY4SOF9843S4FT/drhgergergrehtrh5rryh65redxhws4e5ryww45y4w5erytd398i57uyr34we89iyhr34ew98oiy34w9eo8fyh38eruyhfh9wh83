@@ -1,10 +1,19 @@
 return function(tab)
     local plr = game.Players.LocalPlayer
-    local chr = plr.Character or plr.CharacterAdded:Wait()
+    local chr
+    local hrp
+
+    local function updateCharacter()
+        chr = plr.Character or plr.CharacterAdded:Wait()
+        hrp = chr:WaitForChild("HumanoidRootPart")
+    end
+
+    plr.CharacterAdded:Connect(updateCharacter)
+    updateCharacter()
 
     local function tp(pos)
-        if chr and chr:FindFirstChild("HumanoidRootPart") then
-            chr.HumanoidRootPart.CFrame = CFrame.new(pos)
+        if hrp then
+            hrp.CFrame = CFrame.new(pos)
         end
     end
 
@@ -16,14 +25,14 @@ return function(tab)
     }):OnChanged(function(v)
         local bp = plr:FindFirstChild("Backpack")
         if v then
-            if bp and not plr.Character:FindFirstChild("Map") then
+            if bp and not chr:FindFirstChild("Map") then
                 local tool = bp:FindFirstChild("Map")
                 if tool then
-                    plr.Character.Humanoid:EquipTool(tool)
+                    chr:WaitForChild("Humanoid"):EquipTool(tool)
                 end
             end
         else
-            local tool = plr.Character:FindFirstChild("Map")
+            local tool = chr:FindFirstChild("Map")
             if tool then
                 tool.Parent = bp
             end
@@ -48,7 +57,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    })
+    }):SetValue("Spawn")
 
     local world1Bosses = tab:AddSection("World 1 Bosses")
     world1Bosses:AddDropdown("World1BossesDropdown", {
@@ -67,7 +76,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    })
+    }):SetValue("Ancient Gladiator")
 
     local world2 = tab:AddSection("World 2 Locations")
     world2:AddDropdown("World2Dropdown", {
@@ -84,7 +93,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    })
+    }):SetValue("Spawn")
 
     local world2Bosses = tab:AddSection("World 2 Bosses")
     world2Bosses:AddDropdown("World2BossesDropdown", {
@@ -104,7 +113,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    })
+    }):SetValue("Jungle Hunter")
 
     local world3 = tab:AddSection("World 3 Locations")
     world3:AddDropdown("World3Dropdown", {
@@ -121,7 +130,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    })
+    }):SetValue("Spawn")
 
     local world3Bosses = tab:AddSection("World 3 Bosses")
     world3Bosses:AddDropdown("World3BossesDropdown", {
@@ -140,5 +149,5 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    })
+    }):SetValue("Deep Sea Undead")
 end
