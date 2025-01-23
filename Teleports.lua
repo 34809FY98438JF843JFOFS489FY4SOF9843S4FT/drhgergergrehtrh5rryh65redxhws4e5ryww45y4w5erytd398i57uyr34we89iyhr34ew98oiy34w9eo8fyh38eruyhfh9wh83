@@ -41,10 +41,10 @@ return function(tab)
         Default = "Spawn",
         Callback = function(selected)
             local coords = {
+                ["Spawn"] = Vector3.new(-1.40, 59.17, -27.76),
                 ["Pvp"] = Vector3.new(-15.83, 96.40, -413.64),
                 ["Leaderboards"] = Vector3.new(166.53, 126.52, -576.48),
                 ["Mount Shop"] = Vector3.new(9.22, 58.63, -14.07),
-                ["Spawn"] = Vector3.new(-1.40, 59.17, -27.76),
                 ["Grocery Store"] = Vector3.new(59.63, 97.23, -368.83),
                 ["Blacksmith"] = Vector3.new(-56.59, 97.23, -341.58)
             }
