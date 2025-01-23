@@ -57,7 +57,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    }):SetValue("Spawn")
+    })
 
     local world1Bosses = tab:AddSection("World 1 Bosses")
     world1Bosses:AddDropdown("World1BossesDropdown", {
@@ -76,7 +76,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    }):SetValue("Ancient Gladiator")
+    })
 
     local world2 = tab:AddSection("World 2 Locations")
     world2:AddDropdown("World2Dropdown", {
@@ -93,7 +93,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    }):SetValue("Spawn")
+    })
 
     local world2Bosses = tab:AddSection("World 2 Bosses")
     world2Bosses:AddDropdown("World2BossesDropdown", {
@@ -113,7 +113,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    }):SetValue("Jungle Hunter")
+    })
 
     local world3 = tab:AddSection("World 3 Locations")
     world3:AddDropdown("World3Dropdown", {
@@ -130,7 +130,7 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    }):SetValue("Spawn")
+    })
 
     local world3Bosses = tab:AddSection("World 3 Bosses")
     world3Bosses:AddDropdown("World3BossesDropdown", {
@@ -149,5 +149,5 @@ return function(tab)
             }
             tp(coords[selected])
         end
-    }):SetValue("Deep Sea Undead")
+    })
 end
