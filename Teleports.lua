@@ -153,35 +153,39 @@ local world3Bosses = tab:AddSection("World 3 Bosses")
 end
 
 local potionMage = tab:AddSection("Potion Mage")
-    potionMage:AddButton("potionMageButton", {
-        Title = "Potion Mage",
-        Description = "Teleport To the Potion Mage",
-        Callback = function()
-    local plr = game.Players.LocalPlayer
+potionMage:AddButton({
+    Title = "Potion Mage",
+    Description = "Teleport To the Potion Mage",
+    Callback = function()
+        local plr = game.Players.LocalPlayer
         local chr = plr.Character or plr.CharacterAdded:Wait()
-            local hrp = chr:WaitForChild("HumanoidRootPart")
-                local function tp(pos)
-                    if hrp then
-                        hrp.CFrame = CFrame.new(pos)
-                            end
-                                end
-                                    local function tpToNPC()
-                                        local flag = workspace.Func.IslandFlag:FindFirstChild("Potion Boat")
-                                            if flag and flag:IsA("BasePart") then
-                                                tp(flag.Position + Vector3.new(0, 5, 0))
-                                                    local npc
-                                                        while true do
-                                                    npc = workspace.NPCs:FindFirstChild("Potion Mage")
-                                                if npc then
-                                            break
-                                        end
-                                    task.wait(0.2)
-                                end
-                            local npcPivot = npc:GetPivot().Position
-                        local offset = Vector3.new(3, 0, 0)
-                    tp(npcPivot + offset)
+        local hrp = chr:WaitForChild("HumanoidRootPart")
+
+        local function tp(pos)
+            if hrp then
+                hrp.CFrame = CFrame.new(pos)
+            end
+        end
+
+        local function tpToNPC()
+            local flag = workspace.Func.IslandFlag:FindFirstChild("Potion Boat")
+            if flag and flag:IsA("BasePart") then
+                tp(flag.Position + Vector3.new(0, 5, 0))
+
+                local npc
+                for i = 1, 50 do
+                    npc = workspace.NPCs:FindFirstChild("Potion Mage")
+                    if npc then break end
+                    task.wait(0.2)
+                end
+
+                if npc then
+                    local npcPos = npc:IsA("Model") and npc:GetPivot().Position or npc.Position
+                    tp(npcPos + Vector3.new(3, 0, 0))
                 end
             end
+        end
+
         tpToNPC()
     end
 })
