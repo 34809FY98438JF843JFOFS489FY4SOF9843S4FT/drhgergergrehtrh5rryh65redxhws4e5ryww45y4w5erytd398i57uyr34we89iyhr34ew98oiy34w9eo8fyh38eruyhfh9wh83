@@ -3,7 +3,7 @@ return function(tab)
     local chr
     local hrp
 
-    local function updateCharacter()
+local function updateCharacter()
         chr = plr.Character or plr.CharacterAdded:Wait()
         hrp = chr:WaitForChild("HumanoidRootPart")
     end
@@ -11,13 +11,13 @@ return function(tab)
     plr.CharacterAdded:Connect(updateCharacter)
     updateCharacter()
 
-    local function tp(pos)
+local function tp(pos)
         if hrp then
             hrp.CFrame = CFrame.new(pos)
         end
     end
 
-    local ms = tab:AddSection("Map Toggle")
+local ms = tab:AddSection("Map Toggle")
 
     ms:AddToggle("MapToggle", {
         Title = "Equip Map",
@@ -39,7 +39,7 @@ return function(tab)
         end
     end)
 
-    local world1 = tab:AddSection("World 1 Locations")
+local world1 = tab:AddSection("World 1 Locations")
     world1:AddDropdown("World1Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 1 location to teleport",
@@ -59,7 +59,7 @@ return function(tab)
         end
     })
 
-    local world1Bosses = tab:AddSection("World 1 Bosses")
+local world1Bosses = tab:AddSection("World 1 Bosses")
     world1Bosses:AddDropdown("World1BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 1 boss to teleport",
@@ -78,7 +78,7 @@ return function(tab)
         end
     })
 
-    local world2 = tab:AddSection("World 2 Locations")
+local world2 = tab:AddSection("World 2 Locations")
     world2:AddDropdown("World2Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 2 location to teleport",
@@ -95,7 +95,7 @@ return function(tab)
         end
     })
 
-    local world2Bosses = tab:AddSection("World 2 Bosses")
+local world2Bosses = tab:AddSection("World 2 Bosses")
     world2Bosses:AddDropdown("World2BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 2 boss to teleport",
@@ -115,7 +115,7 @@ return function(tab)
         end
     })
 
-    local world3 = tab:AddSection("World 3 Locations")
+local world3 = tab:AddSection("World 3 Locations")
     world3:AddDropdown("World3Dropdown", {
         Title = "Select Location",
         Description = "Choose a World 3 location to teleport",
@@ -132,7 +132,7 @@ return function(tab)
         end
     })
 
-    local world3Bosses = tab:AddSection("World 3 Bosses")
+local world3Bosses = tab:AddSection("World 3 Bosses")
     world3Bosses:AddDropdown("World3BossesDropdown", {
         Title = "Select Boss",
         Description = "Choose a World 3 boss to teleport",
@@ -151,3 +151,37 @@ return function(tab)
         end
     })
 end
+
+local potionMage = tab:AddSection("Potion Mage")
+    potionMage:AddButton("potionMageButton", {
+        Title = "Potion Mage",
+        Description = "Teleport To the Potion Mage",
+        Callback = function()
+    local plr = game.Players.LocalPlayer
+        local chr = plr.Character or plr.CharacterAdded:Wait()
+            local hrp = chr:WaitForChild("HumanoidRootPart")
+                local function tp(pos)
+                    if hrp then
+                        hrp.CFrame = CFrame.new(pos)
+                            end
+                                end
+                                    local function tpToNPC()
+                                        local flag = workspace.Func.IslandFlag:FindFirstChild("Potion Boat")
+                                            if flag and flag:IsA("BasePart") then
+                                                tp(flag.Position + Vector3.new(0, 5, 0))
+                                                    local npc
+                                                        while true do
+                                                    npc = workspace.NPCs:FindFirstChild("Potion Mage")
+                                                if npc then
+                                            break
+                                        end
+                                    task.wait(0.2)
+                                end
+                            local npcPivot = npc:GetPivot().Position
+                        local offset = Vector3.new(3, 0, 0)
+                    tp(npcPivot + offset)
+                end
+            end
+        tpToNPC()
+    end
+})
